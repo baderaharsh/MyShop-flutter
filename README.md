@@ -96,7 +96,6 @@ Step 9 - Used Delete() http request for deleting a product from cloud.
 Step 10 - Implemented Get() and Post() requests for maintaining orders also.
 
 Step 11 - Implemented Orders fetching operation using FutureBuilder.
-<<<<<<< HEAD
 
 ################################################################################
 
@@ -113,5 +112,3 @@ Step 3 - Implemented error handling. As we receive error message as REST API ins
 Step 4 - Favorites will be handled separately.
 
 Step 5 - Successfully completed this section by managing all app data on Firebase and storing current authenticated session on local device storage using "Shared preferences" dependency.
-=======
->>>>>>> parent of 9604f00... Authentication page added
