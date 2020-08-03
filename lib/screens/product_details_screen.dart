@@ -15,58 +15,76 @@ class ProductDetailsPage extends StatelessWidget {
     ).findProduct(productId);
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(product.title),
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: <Widget>[
-            Container(
-              alignment: Alignment.center,
-              child: Image.network(product.imageUrl),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: <Widget>[
-                Text(
-                  product.title,
-                  style: TextStyle(
-                    fontSize: 20,
-                  ),
+      // appBar: AppBar(
+      //   title:
+      // ),
+      body: CustomScrollView(
+        slivers: <Widget>[
+          SliverAppBar(
+            expandedHeight: 300,
+            pinned: true,
+            flexibleSpace: FlexibleSpaceBar(
+              title: Text(product.title),
+              background: Hero(
+                tag: product.id,
+                child: Image.network(
+                  product.imageUrl,
+                  fit: BoxFit.cover,
                 ),
-                Container(
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: Colors.deepOrange,
-                      style: BorderStyle.solid,
-                      width: 3,
-                    ),
-                  ),
-                  child: Padding(
-                    padding: EdgeInsets.all(10),
-                    child: Text(
-                      '\$${product.price.toString()}',
+              ),
+            ),
+          ),
+          SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                SizedBox(
+                  height: 20,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: <Widget>[
+                    Text(
+                      product.title,
                       style: TextStyle(
                         fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.deepOrange,
                       ),
                     ),
-                  ),
+                    Container(
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Colors.deepOrange,
+                          style: BorderStyle.solid,
+                          width: 3,
+                        ),
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.all(10),
+                        child: Text(
+                          '\$${product.price.toString()}',
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.deepOrange,
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Text(
+                  product.description,
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(
+                  height: 800,
                 )
               ],
             ),
-            SizedBox(
-              height: 10,
-            ),
-            Text(
-              product.description,
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

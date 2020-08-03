@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:math';
 import '../providers/orders.dart' as ord;
 import 'package:intl/intl.dart';
 
@@ -40,8 +39,7 @@ class _OrderItemState extends State<OrderItem> {
               },
             ),
           ),
-          if (_isExpanded)
-            Divider(),
+          if (_isExpanded) Divider(),
           if (_isExpanded)
             Column(
                 children: widget.order.products
@@ -51,8 +49,6 @@ class _OrderItemState extends State<OrderItem> {
                               Text('${product.quantity} x \$${product.price}'),
                         ))
                     .toList()),
-
-          
         ],
       ),
     );
